@@ -20,7 +20,7 @@ form.addEventListener('submit', (e) => {
     formMessage.style.color = '#f87171';
     return;
   }
-  const subject = encodeURIComponent(`Diagnostic Request from ${name}`);
+  const subject = encodeURIComponent(`Request from ${name}`);
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${form.phone.value}\n\n${message}`);
   window.location.href = `mailto:PMurfy21@yahoo.com?subject=${subject}&body=${body}`;
   formMessage.textContent = 'Opening your email client…';
