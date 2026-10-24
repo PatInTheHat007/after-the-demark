@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>After The Demarc – Networking Specialists</title>
-  <meta name="description" content="We start where your ISP stops. Clear diagnostics, reliable home networks, and Home Assistant automation. Own your network past the demarc.">
+  <meta name="description" content="We start where your ISP stops. Clear diagnostics, reliable home networks, and Home Assistant automation.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,10 +22,7 @@
       </a>
       <nav class="nav" id="nav">
         <a href="#demarc">The Demarc</a>
-        <a href="#see">See What’s Happening</a>
-        <a href="#results">Results</a>
         <a href="#packages">Packages</a>
-        <a href="#updates">Updates</a>
         <a href="#automation">Automation</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -40,11 +37,17 @@
     <section class="hero">
       <div class="container">
         <h1>Your ISP Stops at the Demarc.<br>Take Control of What Comes Next.</h1>
-        <p class="hero-lead">Some providers offer add-on Wi-Fi for a monthly fee. We give you a network you own — clear visibility, consistent performance, and a foundation for Home Assistant automation.</p>
+        <p class="hero-lead">We give you a network you own — clear visibility, consistent performance, and a foundation for Home Assistant. Most clients start with a diagnostic. No obligation to buy anything.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Book a Diagnostic</a>
           <a href="#packages" class="btn btn-secondary">View Packages</a>
         </div>
+      </div>
+    </section>
+
+    <section class="who-for">
+      <div class="container">
+        <p><strong>Who this is for:</strong> Homes with dead zones, lots of devices, smart-home plans, or anyone tired of paying monthly for ISP mesh systems.</p>
       </div>
     </section>
 
@@ -65,61 +68,36 @@
       </div>
     </section>
 
-    <section id="see" class="section section-alt">
+    <section id="results" class="section section-alt">
       <div class="container">
-        <h2>We Show You Exactly What’s Happening</h2>
-        <p class="section-intro">Tools like ntopng, NetSpot, and WiFi Analyzer turn complex activity into clear visuals. No networking degree required.</p>
-        <div class="grid-3">
-          <div class="card">
-            <h3>ntopng</h3>
-            <p>Real-time view of every device and how much data each one is moving.</p>
-          </div>
-          <div class="card">
-            <h3>NetSpot & WiFi Analyzer</h3>
-            <p>Room-by-room maps of signal strength and interference.</p>
-          </div>
-          <div class="card">
-            <h3>Temporary UniFi Setup</h3>
-            <p>Try a professional system for a few days (or lease it) before any permanent install.</p>
-          </div>
-        </div>
-        <div class="privacy-box">
-          <h3>Your Data Stays Private</h3>
-          <p>We only look at how data moves — devices, connection type, and volume. Never the content of your traffic.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="results" class="section">
-      <div class="container">
-        <h2>Real Results</h2>
-        <p class="section-intro">A 500 Mbps plan doesn’t guarantee good performance in every room. Here’s what uneven coverage looks like — and what changes after a proper setup.</p>
+        <h2>What Uneven Performance Looks Like</h2>
+        <p class="section-intro">A 500 Mbps plan doesn’t guarantee good speeds in every room.</p>
         <div class="diagram-pair">
           <div class="diagram-card">
             <h3>Before</h3>
             <div class="diagram">
               <div class="node isp">ISP 500 Mbps</div>
-              <div class="arrow">→</div>
+              <div class="arrow">↓</div>
               <div class="node bad-router">Single Weak Router</div>
               <div class="branches">
-                <div class="branch strong">Living Room 470 Mbps</div>
-                <div class="branch weak">Bedroom 40 Mbps</div>
-                <div class="branch weak">Office 75 Mbps</div>
-                <div class="branch weak">Cameras Unstable</div>
+                <span class="branch strong">Living Room<br>470 Mbps</span>
+                <span class="branch weak">Bedroom<br>40 Mbps</span>
+                <span class="branch weak">Office<br>75 Mbps</span>
+                <span class="branch weak">Cameras<br>Unstable</span>
               </div>
             </div>
           </div>
           <div class="diagram-card">
-            <h3>After</h3>
+            <h3>After Proper Setup</h3>
             <div class="diagram">
               <div class="node isp">ISP 500 Mbps</div>
-              <div class="arrow">→</div>
-              <div class="node good-gateway">Proper APs + Segmentation</div>
+              <div class="arrow">↓</div>
+              <div class="node good-gateway">Multiple APs + Segmentation</div>
               <div class="branches">
-                <div class="branch strong">Living Room 460 Mbps</div>
-                <div class="branch strong">Bedroom 410 Mbps</div>
-                <div class="branch strong">Office 430 Mbps</div>
-                <div class="branch strong">Cameras Stable</div>
+                <span class="branch strong">Living Room<br>460 Mbps</span>
+                <span class="branch strong">Bedroom<br>410 Mbps</span>
+                <span class="branch strong">Office<br>430 Mbps</span>
+                <span class="branch strong">Cameras<br>Stable</span>
               </div>
             </div>
           </div>
@@ -127,137 +105,87 @@
       </div>
     </section>
 
-    <section id="packages" class="section section-alt">
+    <section id="packages" class="section">
       <div class="container">
         <h2>Simple Packages</h2>
         <div class="grid-3">
           <div class="card">
             <h3>Diagnostic</h3>
             <p class="price">$179 – $299</p>
-            <p>On-site assessment from the demarc, clear visuals, and a written report with prioritized recommendations.</p>
+            <p>On-site assessment from the demarc, clear visuals, and a written report. No obligation to continue.</p>
+            <a href="#contact" class="btn btn-primary btn-small">Book a Diagnostic</a>
           </div>
           <div class="card">
             <h3>Implementation</h3>
             <p class="price">$1,200 – $3,500+</p>
-            <p>Design and install of a reliable network. Optional Home Assistant foundation. Cameras by a certified technician.</p>
+            <p>Design and install of a reliable network. Optional Home Assistant foundation.</p>
+            <a href="#contact" class="btn btn-primary btn-small">Book a Diagnostic</a>
           </div>
-          <div class="card">
-            <h3>Ongoing Support</h3>
+          <div class="card featured">
+            <h3>Network Health Membership</h3>
             <p class="price">$79 – $149/mo</p>
-            <p>Monitoring, priority help, and device update notifications so important firmware doesn’t get missed. Optional on-site update visits available.</p>
+            <p>Priority support + device update monitoring. We log your devices and notify you of important firmware updates. Optional on-site update visits available.</p>
+            <a href="#contact" class="btn btn-primary btn-small">Book a Diagnostic</a>
           </div>
         </div>
-        <p class="note">Diagnostic fee can be credited toward implementation if you move forward within 30 days.</p>
-      </div>
-    </section>
-
-    <!-- Device Update Monitoring -->
-    <section id="updates" class="section">
-      <div class="container">
-        <h2>Device Update Monitoring</h2>
-        <p class="section-intro">We keep a private log of the devices on your network and notify you when firmware or security updates are available. You stay in control — we just make sure nothing important gets missed.</p>
-        
-        <div class="grid-2">
-          <div class="card">
-            <h3>How It Works</h3>
-            <ul class="clean-list">
-              <li>We record your devices during the initial setup or diagnostic (name, model, current version).</li>
-              <li>When a relevant update is released, you receive a simple notification.</li>
-              <li>You can update the device yourself and reply to confirm, or request a quick remote check.</li>
-              <li>Prefer hands-off? Schedule a short on-site visit for a small fee.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Included with Ongoing Support</h3>
-            <p>Device logging and update notifications are part of the monthly support plan ($79–$149/mo). No extra charge for the alerts.</p>
-            <p>Optional on-site update visit: $95–$125 (or included in higher-tier plans).</p>
-            <a href="#contact" class="btn btn-primary" style="margin-top:1rem;">Ask About Update Monitoring</a>
-          </div>
-        </div>
-
-        <div class="privacy-box">
-          <h3>Privacy First</h3>
-          <p>The log only contains device names, models, and version numbers. We never store personal data, browsing history, or traffic content. You can request the list or have it deleted at any time.</p>
-        </div>
+        <p class="note">Diagnostic fee can be credited toward implementation within 30 days.</p>
       </div>
     </section>
 
     <section id="automation" class="section section-alt">
       <div class="container">
         <h2>Home Automation with Home Assistant</h2>
-        <p class="section-intro">A proper network makes reliable local automation possible — lights, climate, locks, cameras, and routines that keep working even when the internet is down.</p>
+        <p class="section-intro">A stable network you control makes reliable local automation possible.</p>
         <div class="grid-3">
           <div class="card">
             <h3>Lighting & Climate</h3>
-            <p>Schedules, occupancy, and conditions control lights and temperature automatically.</p>
+            <p>Schedules and conditions that work even when the internet is down.</p>
           </div>
           <div class="card">
             <h3>Security & Cameras</h3>
-            <p>Sensors, locks, and cameras installed by a New York State certified technician.</p>
+            <p>Sensors, locks, and cameras installed by a certified technician.</p>
           </div>
           <div class="card">
             <h3>Daily Routines</h3>
-            <p>Arrival scenes, leak alerts, garage doors, and whole-home audio.</p>
+            <p>Arrival scenes, leak alerts, and whole-home control.</p>
           </div>
         </div>
         <div class="outage-question">
           <h3>What happens to your security system when the power or internet goes out?</h3>
-          <p>Many cloud systems fail. A local design with Home Assistant keeps critical functions available.</p>
+          <p>Many cloud systems fail. A local design keeps critical functions available.</p>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section">
+    <section class="section lead-magnet">
+      <div class="container center">
+        <h2>Free Guide</h2>
+        <p>5 Signs Your Home Network Is Limiting Your Internet Plan</p>
+        <a href="#contact" class="btn btn-primary">Send Me the Guide</a>
+        <p class="note">Just mention “guide” when you reach out — I’ll email it to you.</p>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-alt">
       <div class="container">
         <h2>Common Questions</h2>
         <div class="faq-list">
           <details>
             <summary>Do I have to replace all my equipment?</summary>
-            <p>No. We start with a diagnostic. Many homes only need better placement, an additional access point, or light segmentation.</p>
+            <p>No. Many homes only need better placement, one extra access point, or light segmentation.</p>
           </details>
           <details>
             <summary>Will this work with my current ISP?</summary>
-            <p>Yes. We work past the demarcation point, so your existing internet service stays in place.</p>
+            <p>Yes. We work past the demarcation point. Your existing internet service stays.</p>
           </details>
           <details>
             <summary>What if I only want the diagnostic?</summary>
-            <p>That’s fine. You’ll receive a clear written report you can use yourself or with another installer.</p>
-          </details>
-          <details>
-            <summary>Is this only for large homes?</summary>
-            <p>No. Smaller homes with dead zones, many devices, or automation plans benefit just as much.</p>
+            <p>That’s completely fine. You’ll get a clear written report either way.</p>
           </details>
           <details>
             <summary>How does device update monitoring work?</summary>
-            <p>We log your devices and notify you of important updates. You can update them yourself and confirm, or we can handle it on-site for a small fee. It’s included with the monthly support plan.</p>
+            <p>With the monthly plan we log your devices and notify you of important updates. You can update them yourself or we can handle it on-site.</p>
           </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container center">
-        <h2>Free Guide</h2>
-        <p>5 Signs Your Home Network Is Limiting Your Internet Plan</p>
-        <a href="#contact" class="btn btn-primary">Request the Guide</a>
-        <p class="note">Mention “guide” in your message and we’ll send it.</p>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <div class="certifications">
-          <h3>Certifications</h3>
-          <div class="cert-grid">
-            <div class="cert-item">
-              <strong>New York State Security or Fire Alarm Installer License</strong>
-              <span class="coming-soon">Coming Soon</span>
-            </div>
-            <div class="cert-item">
-              <strong>CEDIA Certification</strong>
-              <span class="coming-soon">Coming Soon</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -265,7 +193,7 @@
     <section id="contact" class="section cta-section">
       <div class="container">
         <h2>Ready to See What’s Happening on Your Network?</h2>
-        <p class="section-intro">Tell us about your home. We’ll schedule a diagnostic and show you clear results.</p>
+        <p class="section-intro">Book a diagnostic. We’ll show you clear results — no pressure to buy anything.</p>
         <form id="contactForm" class="contact-form" novalidate>
           <div class="form-group">
             <label for="name">Name</label>
@@ -283,7 +211,7 @@
             <label for="message">How can we help?</label>
             <textarea id="message" name="message" rows="4" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <button type="submit" class="btn btn-primary btn-full">Book a Diagnostic</button>
           <p class="form-note">Or call / text: <a href="tel:+16078573355">(607) 857-3355</a></p>
           <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
         </form>
@@ -294,6 +222,7 @@
   <footer class="site-footer">
     <div class="container">
       <p>After The Demarc – Networking Specialists</p>
+      <p>Credentials in progress: New York State Security/Fire Alarm Installer License · CEDIA</p>
       <p>We start where your internet provider stops.</p>
       <p><a href="mailto:PMurfy21@yahoo.com">PMurfy21@yahoo.com</a> · <a href="tel:+16078573355">(607) 857-3355</a></p>
     </div>
