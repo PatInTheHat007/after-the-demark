@@ -553,7 +553,7 @@ function sceneEnd(ctx, t) {
     text(ctx, 'Book an Assessment', 0, 3, { size: 48, weight: 800, color: C.navy, align: 'center' });
     ctx.restore();
     text(ctx, 'Call or text  (607) 857-3355', W / 2, 765, { size: 48, weight: 700, color: '#fff', align: 'center', alpha: prog(t, 68.0, 68.5) });
-    text(ctx, 'Elmira · Corning · Horseheads · the Southern Tier', W / 2, 840, { size: 30, weight: 500, color: C.slate, align: 'center', alpha: prog(t, 68.4, 68.9) });
+    text(ctx, 'Elmira · Corning · the Southern Tier · the Finger Lakes', W / 2, 840, { size: 30, weight: 500, color: C.slate, align: 'center', alpha: prog(t, 68.4, 68.9) });
     ctx.restore();
   }
 }
