@@ -1,9 +1,9 @@
-// After The Demarc — promo video scenes. Pure canvas drawing, driven by time t (seconds).
+// After the Demark — promo video scenes. Pure canvas drawing, driven by time t (seconds).
 const W = 1920, H = 1080;
 const F = 'Avenir Next';
 const C = {
   bg: '#0b1220', bg2: '#111827', surface: '#1e293b', border: '#334155',
-  text: '#f8fafc', muted: '#cbd5e1', dim: '#94a3b8', teal: '#00b4d8', tealHi: '#5fe1f7',
+  text: '#f8fafc', muted: '#cbd5e1', dim: '#94a3b8', teal: '#4FD1BF', tealHi: '#8AE6D9',
   red: '#ef4444', redDk: '#7f1d1d', green: '#22c55e', greenDk: '#065f46', amber: '#f59e0b',
 };
 
@@ -84,21 +84,23 @@ function check(ctx, x, y, s, color, k = 1) {
 
 // ---------- logo ----------
 function logo(ctx, x, y, s, k = 1) {
-  // matches the site's header mark: node, drop line, port, arrow
-  ctx.save(); ctx.translate(x, y); ctx.scale(s / 36, s / 36); ctx.lineCap = 'round';
-  const a = prog(k, 0, 0.2), b = prog(k, 0.15, 0.5), c = prog(k, 0.45, 0.65), d = prog(k, 0.6, 1);
-  if (a > 0) circle(ctx, 8, 8, 3 * eout(a), C.teal);
-  if (b > 0) line(ctx, 8, 11, 8, 11 + 17 * eio(b), '#e2e8f0', 2.5);
-  if (c > 0) { ctx.beginPath(); ctx.arc(20, 28, 3, 0, Math.PI * 2 * eio(c)); ctx.strokeStyle = C.teal; ctx.lineWidth = 2; ctx.stroke(); }
-  if (d > 0) {
-    line(ctx, 23, 28, 23 + 7 * eio(d), 28, C.teal, 2.5);
-    ctx.save(); ctx.globalAlpha *= d; ctx.beginPath(); ctx.moveTo(27, 25); ctx.lineTo(30, 28); ctx.lineTo(27, 31);
-    ctx.strokeStyle = C.teal; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+  // matches the site's header mark: ISP line, demarc bar, three branches to devices
+  ctx.save(); ctx.translate(x, y); ctx.scale(s / 34, s / 34); ctx.lineCap = 'round';
+  const a = prog(k, 0, 0.25), b = prog(k, 0.2, 0.45), c = prog(k, 0.4, 0.75), d = prog(k, 0.65, 1);
+  if (a > 0) line(ctx, 2, 17, 2 + 11 * eio(a), 17, '#8FB3C4', 2.4);
+  if (b > 0) line(ctx, 14, 17 - 11 * eio(b), 14, 17 + 11 * eio(b), C.teal, 3);
+  if (c > 0) {
+    const e = eio(c);
+    line(ctx, 15, 17, 15 + 9 * e, 17 - 10 * e, '#ffffff', 2);
+    line(ctx, 15, 17, 15 + 11 * e, 17, '#ffffff', 2);
+    line(ctx, 15, 17, 15 + 9 * e, 17 + 10 * e, '#ffffff', 2);
   }
+  if (d > 0) [[25, 7], [28, 17], [25, 27]].forEach(([cx, cy]) => circle(ctx, cx, cy, 3 * eout(d), '#ffffff'));
   ctx.restore();
 }
+
 function wordmark(ctx, x, y, size, alpha = 1, align = 'center') {
-  const a = 'After The ', b = 'Demarc';
+  const a = 'After the ', b = 'Demark';
   const wa = measure(ctx, a, size, 500), wb = measure(ctx, b, size, 800);
   let sx = align === 'center' ? x - (wa + wb) / 2 : x;
   text(ctx, a, sx, y, { size, weight: 500, align: 'left', alpha });
@@ -151,7 +153,7 @@ function technician(ctx, x, y, pose) {
   leg(sw * 0.38, '#2e3d55');
   // back arm (swing)
   ctx.save(); ctx.translate(-10, -430); ctx.rotate(sw * 0.4 + 0.08);
-  fillRR(ctx, -17, 0, 34, 160, 16, '#0e7490'); circle(ctx, 0, 165, 17, '#c68a62'); ctx.restore();
+  fillRR(ctx, -17, 0, 34, 160, 16, '#0f6e63'); circle(ctx, 0, 165, 17, '#c68a62'); ctx.restore();
   // torso (polo)
   fillRR(ctx, -58, -470, 116, 260, 36, '#0891b2');
   fillRR(ctx, -58, -255, 116, 40, 10, '#3f2d1d'); // tool belt
@@ -159,7 +161,7 @@ function technician(ctx, x, y, pose) {
   fillRR(ctx, -20, -470, 40, 40, 10, '#06b6d4');
   // badge
   fillRR(ctx, 14, -420, 34, 22, 4, '#e2e8f0');
-  text(ctx, 'ISP', 31, -409, { size: 13, weight: 800, color: '#0e7490' });
+  text(ctx, 'ISP', 31, -409, { size: 13, weight: 800, color: '#0f6e63' });
   // head
   circle(ctx, 0, -520, 52, '#d6a07a');
   // cap
@@ -229,7 +231,7 @@ function drawRoom(ctx, t, opts = {}) {
   // frame picture
   fillRR(ctx, 1000, 260, 220, 160, 6, '#0f172a', '#6b4f36', 10);
   ctx.beginPath(); ctx.moveTo(1010, 410); ctx.lineTo(1080, 320); ctx.lineTo(1130, 380); ctx.lineTo(1160, 345); ctx.lineTo(1210, 410);
-  ctx.fillStyle = '#0e7490'; ctx.fill();
+  ctx.fillStyle = '#0f6e63'; ctx.fill();
   // door
   const [dx, dy] = ROOM.door;
   fillRR(ctx, dx - 10, dy - 560, 300, 570, 4, '#0a0f1a');
@@ -529,7 +531,7 @@ function sceneReveal(ctx, t) {
   // logo reveal (34.9 – 38.4)
   const k = prog(t, 34.9, 36.3);
   if (k > 0) {
-    glow(ctx, W / 2, ly - 20, 700, '#0e7490', 0.35 * k);
+    glow(ctx, W / 2, ly - 20, 700, '#0f6e63', 0.35 * k);
     logo(ctx, W / 2 - 110, ly - 260, 220, k);
     const wa = prog(t, 35.9, 36.6);
     ctx.save(); ctx.translate(0, lerp(20, 0, eout(wa)));
@@ -655,7 +657,7 @@ function sceneAutomation(ctx, t) {
 function sceneOffer(ctx, t) {
   bgGrad(ctx);
   const lt = t - 57.4;
-  glow(ctx, W / 2, H / 2, 800, '#0e7490', 0.25);
+  glow(ctx, W / 2, H / 2, 800, '#0f6e63', 0.25);
   const k = eout(prog(lt, 0.1, 0.8));
   ctx.save(); ctx.translate(0, lerp(40, 0, k)); ctx.globalAlpha = k;
   fillRR(ctx, W / 2 - 520, 130, 1040, 770, 32, '#111c2f', C.teal, 3);
@@ -681,7 +683,7 @@ function sceneOffer(ctx, t) {
 
 function sceneEnd(ctx, t) {
   ctx.fillStyle = '#04070e'; ctx.fillRect(0, 0, W, H);
-  glow(ctx, W / 2, H / 2, 900, '#0e7490', 0.3 * prog(t, 66.6, 68));
+  glow(ctx, W / 2, H / 2, 900, '#0f6e63', 0.3 * prog(t, 66.6, 68));
   const a1 = prog(t, 64.9, 65.4) * (1 - prog(t, 66.4, 66.8));
   const a2 = prog(t, 65.9, 66.3) * (1 - prog(t, 66.4, 66.8));
   text(ctx, 'Your ISP is done.', W / 2, H / 2 - 50, { size: 78, weight: 600, color: C.muted, alpha: a1 });
@@ -698,8 +700,8 @@ function sceneEnd(ctx, t) {
     const pulse = 1 + 0.025 * Math.sin(t * 4) * prog(t, 68.5, 69);
     ctx.scale(pulse, pulse);
     glow(ctx, 0, 0, 260, C.teal, 0.35);
-    fillRR(ctx, -280, -54, 560, 108, 16, C.teal);
-    text(ctx, 'Book a Diagnostic', 0, 3, { size: 48, weight: 800, color: '#0b1220' });
+    fillRR(ctx, -300, -54, 600, 108, 16, C.teal);
+    text(ctx, 'Book an Assessment', 0, 3, { size: 48, weight: 800, color: '#0E2433' });
     ctx.restore();
     text(ctx, 'Call or text  (607) 857-3355', W / 2, 790, { size: 46, weight: 700, alpha: prog(t, 68.0, 68.5) });
     text(ctx, 'No obligation · Written report · Credited toward install', W / 2, 860, { size: 28, weight: 500, color: C.dim, alpha: prog(t, 68.4, 68.9) });
@@ -726,7 +728,7 @@ const CAPS = [
   [27.0, 30.0, 'Their answer? Rent another box. Add another monthly bill.'],
   [30.0, 32.9, 'And you still can’t see what’s on your network.'],
   [33.4, 34.6, 'That’s where we come in.'],
-  [34.9, 38.2, 'After The Demarc. We start where your ISP stops.'],
+  [34.9, 38.2, 'After the Demark. We start where your ISP stops.'],
   [38.8, 41.2, 'We test your home from the demarc forward,'],
   [41.2, 43.4, 'find what’s really slowing you down,'],
   [43.4, 45.3, 'and design a network you own.'],
